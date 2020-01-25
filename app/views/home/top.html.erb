@@ -1,0 +1,41 @@
+<h1>トップ画面を表示中！！</h1>
+<p>Find me in app/views/home/top.html.erb</p>
+<%= @task%>
+
+<%  @tasks.each do |task| %>
+  <% if task[:priority] == "high" %>
+    <span class="redbox">
+			         <%= task[:text] %>
+     
+      <span class="deadline">
+       <%= link_to "完了","/tasks/#{task.id}/delete",{method:"post"} %>
+       <%= link_to"詳細","/tasks/#{task.id}"%>
+       <%= task[:deadline]%>
+      </span>
+    </span>
+      
+  <% else %>
+    <span class="graybox">
+			         <%= task[:text] %>
+     <span class="deadline">
+      <%= link_to"完了","/tasks/#{task.id}/delete",{method:"post"} %>
+      <%= link_to"詳細","/tasks/#{task.id}"%>
+      <%= task[:deadline] %>
+     </span>
+    </span>
+		
+  <% end %>
+<%  end %>
+
+
+<%
+=begin%>
+ 機能を追加する場合は、↑の中を変えるのではなく、文法を追加していく 
+<%
+=end%>
+
+<span class="toplink">
+  <%= link_to"新規投稿ページ","/tasks/new"%>
+</span>
+
+

@@ -1,0 +1,8 @@
+<h1>Tasks#new</h1>
+<p>Find me in app/views/tasks/new.html.erb</p>
+<%= form_tag("/tasks/#{@task.id}/update") do %>
+<textarea name="text" rows="4" cols="40"><%= @task.text %></textarea>
+<input name="deadline" type="date" value="<%= @task.deadline %>">
+<input type="checkbox" name="priority" value="<%= @task.priority %>">high
+<input type="submit" value="送信する">
+<% end %>
